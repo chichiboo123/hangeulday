@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>뮤지계 카드뉴스 · 세 개의 눈으로 만나는 한글</title>
+<style>
+@font-face{font-family:Pretendard;font-weight:400;src:url(https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Regular.woff2) format('woff2')}
+@font-face{font-family:Pretendard;font-weight:500;src:url(https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Medium.woff2) format('woff2')}
+@font-face{font-family:Pretendard;font-weight:600;src:url(https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-SemiBold.woff2) format('woff2')}
+@font-face{font-family:Pretendard;font-weight:700;src:url(https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-Bold.woff2) format('woff2')}
+@font-face{font-family:Pretendard;font-weight:800;src:url(https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/woff2/Pretendard-ExtraBold.woff2) format('woff2')}
+:root{--navy:#1F2A44;--sub:#4A5672;--cream:#F7F4EC;--line:#E4DFD2;--blue:#2F6FDE;--red:#E04E39;--yellow:#F6B93B;--green:#2E9E6B;--yellow-soft:#FFF4D6;--blue-soft:#EAF1FD;--red-soft:#FCE9E5;--green-soft:#E5F4EC}
+*{box-sizing:border-box}
+body{margin:0;background:#D9D2C2;font-family:Pretendard,'Malgun Gothic',sans-serif;color:var(--navy);word-break:keep-all;display:flex;flex-direction:column;align-items:center;gap:40px;padding:40px 0}
+.card{position:relative;width:1080px;height:1350px;overflow:hidden;background:var(--cream);padding:84px 80px 0;display:flex;flex-direction:column}
+.card.dark{background:var(--navy);color:#fff}
+.card>*{flex-shrink:0}
+/* 상단 표식: PPT와 같은 점·선·막대 + 단원 알약 */
+.mark{display:flex;align-items:center;gap:14px;margin-bottom:34px}
+.mark i{display:block}.mark .d{width:22px;height:22px;border-radius:50%;background:var(--red)}.mark .l{width:42px;height:12px;border-radius:6px;background:var(--yellow)}.mark .b{width:10px;height:42px;border-radius:5px;background:var(--blue)}
+.pill{display:inline-block;padding:9px 24px;border-radius:999px;font-size:27px;font-weight:700;background:var(--yellow);color:var(--navy);margin-left:8px}
+.pill.blue{background:var(--blue);color:#fff}.pill.red{background:var(--red);color:#fff}.pill.green{background:var(--green);color:#fff}
+h1{font-size:80px;line-height:1.22;font-weight:800;letter-spacing:-.035em;margin:0 0 26px}
+h2{font-size:42px;line-height:1.35;font-weight:700;letter-spacing:-.02em;margin:0}
+p{margin:0}
+.lead{font-size:34px;line-height:1.5;color:var(--sub);font-weight:500;letter-spacing:-.01em}
+.q{font-size:38px;font-weight:700;color:var(--red);letter-spacing:-.02em}
+.box{background:#fff;border:2px solid var(--line);border-radius:28px}
+.foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;height:92px;font-size:22px;color:#8A8F9C;font-weight:500}
+.dark .foot{color:#8C97B3}
+.pic{border-radius:24px;overflow:hidden;border:6px solid #fff;box-shadow:0 0 0 2px var(--line)}
+.pic img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* 1 표지 */
+.c1 .sun{position:absolute;right:-80px;top:390px;width:440px;height:440px;border-radius:50%;background:var(--yellow)}
+.c1 .bar{position:absolute;right:56px;top:690px;width:56px;height:290px;border-radius:29px;background:var(--blue)}
+.c1 .book{position:absolute;right:140px;top:490px;width:400px;height:463px;border-radius:10px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.45);transform:rotate(3deg)}
+.c1 .book img{width:100%;height:100%;object-fit:cover;display:block}
+.c1 .pillbar{position:absolute;left:80px;right:180px;top:1000px;height:56px;border-radius:28px;background:var(--red)}
+.c1 h1{font-size:104px;line-height:1.16;margin:22px 0 28px;position:relative}
+.c1 .sub{font-size:34px;color:#C9D2E6;font-weight:500;line-height:1.5}
+.c1 .ask{position:absolute;left:80px;bottom:112px;margin:0;font-size:52px;line-height:1.35;font-weight:800;color:var(--yellow);letter-spacing:-.03em}
+.c1 .kicker{font-size:30px;font-weight:600;color:#C9D2E6;margin-top:12px}
+
+/* 2 뮤지계 */
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
+.step{padding:34px 34px 36px}
+.step .n{display:grid;place-items:center;width:72px;height:72px;border-radius:50%;font-size:36px;font-weight:800;color:#fff;margin-bottom:22px}
+.step h2{font-size:38px}.step p{font-size:28px;color:var(--sub);margin-top:8px;line-height:1.45}
+.video{margin-top:30px;display:flex;align-items:center;gap:22px;background:var(--navy);color:#fff;border-radius:28px;padding:28px 34px}
+.video .play{flex:none;display:grid;place-items:center;width:76px;height:76px;border-radius:50%;background:var(--red)}
+.video .play i{display:block;width:0;height:0;border-left:26px solid #fff;border-top:16px solid transparent;border-bottom:16px solid transparent;margin-left:8px}
+.video strong{display:block;font-size:34px;font-weight:800}.video span{font-size:26px;color:#C9D2E6}
+
+/* 3 생각 열기 */
+.c3 .pic{height:520px;margin-top:10px}
+.c3 .say{background:var(--yellow-soft);border-radius:28px;padding:40px 46px;margin-top:-60px;margin-left:60px;position:relative;font-size:40px;line-height:1.55;font-weight:700}
+.c3 .q{margin-top:40px}
+
+/* 4 세 개의 눈 */
+.eyes{display:flex;flex-direction:column;gap:18px;margin-top:8px}
+.eye{display:grid;grid-template-columns:136px 1fr;gap:30px;align-items:center;padding:24px 32px}
+.eye img{width:136px;height:136px;border-radius:50%;object-fit:cover;border:8px solid}
+.eye .t{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.eye h2{font-size:40px}.eye .who{font-size:25px;color:var(--sub);font-weight:600}
+.eye p{font-size:30px;line-height:1.45;color:var(--navy);margin-top:8px;font-weight:500}
+.eye .tc{display:inline-block;margin-top:12px;font-size:24px;font-weight:700;color:var(--blue);background:var(--blue-soft);border-radius:999px;padding:5px 16px}
+
+/* 5 훈민정음 */
+.c5 .row{display:grid;grid-template-columns:330px 1fr;gap:24px;margin-top:6px}
+.big28{background:var(--navy);color:#fff;border-radius:28px;padding:34px 30px;text-align:center}
+.big28 b{display:block;font-size:150px;line-height:1;color:var(--yellow);font-weight:800;letter-spacing:-.04em}
+.big28 strong{display:block;font-size:34px;margin-top:10px}.big28 span{display:block;font-size:24px;color:#C9D2E6;margin-top:10px;line-height:1.45}
+.combo{display:flex;flex-direction:column;justify-content:center;gap:22px;padding:28px}
+.cmb{display:flex;align-items:center;gap:12px;font-size:34px;color:#8A8F9C;font-weight:700}
+.cmb em{font-style:normal;display:grid;place-items:center;width:92px;height:92px;border-radius:20px;font-size:52px;font-weight:800;color:var(--navy);background:var(--blue-soft)}
+.cmb em.v{background:var(--red-soft)}.cmb em.r{background:var(--yellow);width:104px;height:104px;font-size:60px}
+.shape{margin-top:24px}
+.shape h2{font-size:34px;margin-bottom:14px}
+.tiles{display:flex;gap:14px}
+.tile{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 6px 14px;text-align:center}
+.tile b{display:grid;place-items:center;width:76px;height:76px;border-radius:18px;background:var(--blue);color:#fff;font-size:48px;font-weight:800}
+.tile span{font-size:22px;line-height:1.3;color:var(--sub);font-weight:600}
+.tiles.v .tile b{background:var(--red)}
+
+/* 6 기록 */
+.tl{position:relative;margin:6px 0 0;display:flex;flex-direction:column;gap:16px}
+.tl:before{content:"";position:absolute;left:46px;top:40px;bottom:40px;width:8px;border-radius:4px;background:var(--line)}
+.ev{position:relative;display:grid;grid-template-columns:100px 1fr;gap:26px;align-items:center}
+.ev .dot{width:100px;height:100px;border-radius:50%;border:10px solid var(--cream);position:relative}
+.ev .body{padding:20px 30px}
+.ev .yr{font-size:46px;font-weight:800;letter-spacing:-.02em}
+.ev p{font-size:30px;font-weight:600;margin-top:2px}.ev small{display:block;font-size:23px;color:var(--sub);margin-top:6px;font-weight:500}
+.note{margin-top:24px;background:var(--yellow-soft);border-radius:24px;padding:28px 34px;font-size:28px;line-height:1.5;font-weight:600}
+.note2{margin-top:16px;display:flex;gap:14px;font-size:26px;line-height:1.5;color:var(--sub);font-weight:500}
+.tag{flex:none;font-size:22px;font-weight:700;border-radius:999px;padding:4px 14px;height:fit-content;margin-top:3px}
+.tag.f{background:var(--blue-soft);color:var(--blue)}.tag.i{background:var(--red-soft);color:var(--red)}
+
+/* 7 편지 */
+.c7 .row{display:grid;grid-template-columns:400px 1fr;gap:26px;margin-top:6px}
+.c7 .pic{height:500px}
+.letter{padding:38px 40px;position:relative;display:flex;flex-direction:column}
+.letter .stamp{position:absolute;right:30px;top:30px;width:62px;height:84px;border-radius:8px;background:var(--red);color:#fff;font-size:26px;font-weight:800;display:grid;place-items:center;line-height:1.1;text-align:center}
+.letter h2{font-size:36px}
+.letter .ln{border-bottom:3px solid var(--line);height:64px;font-size:28px;color:#A2A6B0;display:flex;align-items:flex-end;padding-bottom:8px}
+.letter .sign{margin-top:auto;text-align:right;font-size:32px;font-weight:700}
+.do{margin-top:30px;display:flex;flex-direction:column;gap:16px}
+.do div{display:flex;align-items:center;gap:22px;font-size:32px;font-weight:600}
+.do b{flex:none;display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--green);color:#fff;font-size:30px}
+
+/* 8 자료 */
+.mats{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:20px}
+.mat{padding:30px 32px}
+.mat .ic{display:inline-block;font-size:24px;font-weight:700;border-radius:999px;padding:5px 16px;margin-bottom:16px}
+.mat h2{font-size:40px}.mat p{font-size:26px;line-height:1.5;color:var(--sub);margin-top:10px;font-weight:500}
+.mat.wide{grid-column:1/-1;display:grid;grid-template-columns:1fr 440px;gap:26px;align-items:center}
+.stack{position:relative;height:250px}
+.stack img{position:absolute;width:360px;border-radius:12px;box-shadow:0 10px 26px rgba(31,42,68,.22);border:2px solid #fff}
+.stack img:nth-child(1){left:0;top:0;transform:rotate(-4deg)}.stack img:nth-child(2){left:40px;top:40px;transform:rotate(1deg)}.stack img:nth-child(3){left:80px;top:70px;transform:rotate(4deg)}
+.plan{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.web{margin-top:22px;background:var(--navy);color:#fff;border-radius:28px;padding:30px 34px}
+.web strong{display:block;font-size:32px;font-weight:800;margin-bottom:16px}.web em{font-style:normal;color:var(--yellow);margin-left:10px}
+.web div{display:flex;flex-wrap:wrap;gap:12px}.web span{font-size:25px;font-weight:600;background:#2E3A58;border-radius:999px;padding:8px 20px;color:#E4E9F5}
+.plan div{display:flex;gap:12px;align-items:baseline;font-size:26px;font-weight:600}.plan span{font-size:23px;color:var(--sub);font-weight:500}
+
+/* 9 마무리 */
+.c9 .sun{position:absolute;right:110px;top:230px;width:250px;height:250px;border-radius:50%;background:var(--yellow)}
+.c9 .bar{position:absolute;right:60px;top:290px;width:52px;height:250px;border-radius:26px;background:var(--blue)}
+.c9 .pillbar{position:absolute;right:60px;top:580px;width:440px;height:60px;border-radius:30px;background:var(--red)}
+.c9 h1{font-size:96px;line-height:1.22;margin:250px 0 30px}
+.c9 .blank{display:inline-block;letter-spacing:.06em}
+.c9 .lead{color:#C9D2E6;font-size:34px}
+.c9 .ask{margin-top:40px;font-size:46px;font-weight:800;color:var(--yellow);letter-spacing:-.03em}
+.credit{margin-top:auto;border-top:2px solid #36425F;padding-top:30px;font-size:23px;line-height:1.7;color:#AEB8D0}
+.credit strong{color:#fff;font-weight:700}
+.site{margin-top:14px;font-size:30px;font-weight:800;color:#fff}
+.hash{margin-top:10px;font-size:24px;color:var(--yellow);font-weight:600}
+@media print{body{background:none;padding:0;gap:0}.card{page-break-after:always}}
+</style></head>
+<body>
+
+<!-- 1 표지 -->
+<section class="card dark c1" id="c1">
+<div class="sun"></div><div class="bar"></div><div class="pillbar"></div>
+<div class="book"><img src="img/book.jpg" alt="뮤지컬 그림책 〈새로운 문자 : 세 개의 눈〉 표지"></div>
+<div><span class="pill" style="margin-left:0">뮤지계 · 한글날</span></div>
+<p class="kicker">뮤지컬로 만나는 계기교육</p>
+<h1>세 개의 눈으로<br>만나는 한글</h1>
+<p class="sub">뮤지컬 그림책<br>〈새로운 문자 : 세 개의 눈〉</p>
+<p class="ask">한글은 누구를 위해<br>만들어졌을까요?</p>
+<div class="foot"><span>뮤지계 · 세 개의 눈으로 만나는 한글</span><span>1 / 9</span></div>
+</section>
+
+<!-- 2 뮤지계란 -->
+<section class="card c2" id="c2">
+<div class="mark"><i class="d"></i><i class="l"></i><i class="b"></i><span class="pill">뮤지계란?</span></div>
+<h1>노래로 느끼고,<br>기록으로 확인해요</h1>
+<p class="lead">뮤지계는 뮤지컬을 활용한 계기교육이에요.<br>한글날의 의미를 뮤지컬 그림책의 이야기와 노래로 먼저 만나요.</p>
+<div class="steps">
+<div class="box step"><span class="n" style="background:var(--yellow);color:var(--navy)">0</span><h2>생각 열기</h2><p>영상 보기</p></div>
+<div class="box step"><span class="n" style="background:var(--blue)">1</span><h2>세 개의 눈</h2><p>세종 · 반대 · 찬성</p></div>
+<div class="box step"><span class="n" style="background:var(--red)">2</span><h2>훈민정음</h2><p>글자를 만든 원리</p></div>
+<div class="box step"><span class="n" style="background:var(--green)">3</span><h2>오늘의 한글</h2><p>세종대왕께 편지</p></div>
+</div>
+<div class="video"><span class="play"><i></i></span><div><strong>새로운 문자 : 세 개의 눈</strong><span>뮤지컬 그림책 영상 · 15분 9초 · 작곡 김아름</span></div></div>
+<div class="foot"><span>뮤지계 · 세 개의 눈으로 만나는 한글</span><span>2 / 9</span></div>
+</section>
+
+<!-- 3 생각 열기 -->
+<section class="card c3" id="c3">
+<div class="mark"><i class="d"></i><i class="l"></i><i class="b"></i><span class="pill">0 생각 열기</span></div>
+<h1>내 뜻을 글로<br>전할 수 없다면?</h1>
+<div class="pic"><img src="img/scene_open.jpg" alt="그림책 속 백성들"></div>
+<div class="say">억울한 일이 생겼어요.<br>그런데 나는 글을 몰라요.<br>내 이야기를 다른 사람이 대신 써 주어야 해요.</div>
+<p class="q">무엇이 가장 답답할까요?</p>
+<div class="foot"><span>뮤지계 · 세 개의 눈으로 만나는 한글</span><span>3 / 9</span></div>
+</section>
+
+<!-- 4 세 개의 눈 -->
+<section class="card c4" id="c4">
+<div class="mark"><i class="d"></i><i class="l"></i><i class="b"></i><span class="pill blue">1 세 개의 눈</span></div>
+<h1>같은 글자,<br>서로 다른 마음</h1>
+<div class="eyes">
+<div class="box eye"><img src="../img/face_sejong.jpg" alt="그림책 속 세종" style="border-color:var(--blue)"><div><div class="t"><h2>세종의 눈</h2></div><p>제 뜻을 펴지 못하는 백성을 위해<br>누구나 읽고 쓸 수 있는 글자를!</p><span class="tc">▶ 영상 1:36</span></div></div>
+<div class="box eye"><img src="../img/face_opposers.jpg" alt="그림책 속 최만리·신석조·김문" style="border-color:var(--red)"><div><div class="t"><h2>반대의 눈</h2><span class="who">최만리·신석조·김문 등</span></div><p>중국이 알면 비난하지 않을까,<br>한자 공부와 학문이 약해질까 걱정돼요.</p><span class="tc">▶ 영상 5:02</span></div></div>
+<div class="box eye"><img src="../img/face_sukju.jpg" alt="그림책 속 신숙주·성삼문" style="border-color:var(--green)"><div><div class="t"><h2>찬성의 눈</h2><span class="who">신숙주·성삼문</span></div><p>새 글자의 좋은 점을<br>어떻게 널리 알릴까요?</p><span class="tc">▶ 영상 8:45</span></div></div>
+</div>
+<p class="q" style="margin-top:28px;font-size:34px">세 사람은 각각 무엇을 중요하게 생각했을까요?</p>
+<div class="foot"><span>뮤지계 · 세 개의 눈으로 만나는 한글</span><span>4 / 9</span></div>
+</section>
+
+<!-- 5 훈민정음 -->
+<section class="card c5" id="c5">
+<div class="mark"><i class="d"></i><i class="l"></i><i class="b"></i><span class="pill red">2 훈민정음</span></div>
+<h1>소리를 합쳐<br>글자를 만들어요</h1>
+<div class="row">
+<div class="big28"><b>28</b><strong>처음 만든 글자</strong><span>초성 17자 + 중성 11자<br>오늘날은 24자를 써요</span></div>
+<div class="box combo">
+<div class="cmb"><em>ㅎ</em>+<em class="v">ㅏ</em>+<em>ㄴ</em>=<em class="r">한</em></div>
+<div class="cmb"><em>ㄱ</em>+<em class="v">ㅡ</em>+<em>ㄹ</em>=<em class="r">글</em></div>
+</div></div>
+<div class="shape"><h2>자음은 입·혀·목 모양을 본떴어요</h2>
+<div class="tiles"><div class="box tile"><b>ㄱ</b><span>혀뿌리가<br>목구멍을 막는 모양</span></div><div class="box tile"><b>ㄴ</b><span>혀끝이<br>윗잇몸에 닿는 모양</span></div><div class="box tile"><b>ㅁ</b><span>입 모양</span></div><div class="box tile"><b>ㅅ</b><span>이 모양</span></div><div class="box tile"><b>ㅇ</b><span>목구멍 모양</span></div></div></div>
+<div class="shape" style="margin-top:18px"><h2>모음은 하늘·땅·사람을 본떴어요</h2>
+<div class="tiles v"><div class="box tile"><b>ㆍ</b><span>둥근 하늘</span></div><div class="box tile"><b>ㅡ</b><span>평평한 땅</span></div><div class="box tile"><b>ㅣ</b><span>서 있는 사람</span></div></div></div>
+<div class="foot"><span>뮤지계 · 세 개의 눈으로 만나는 한글</span><span>5 / 9</span></div>
+</section>
+
+<!-- 6 기록 -->
+<section class="card c6" id="c6">
+<div class="mark"><i class="d"></i><i class="l"></i><i class="b"></i><span class="pill red">2 기록으로 확인</span></div>
+<h1>기록으로 보는<br>한글의 시간</h1>
+<div class="tl">
+<div class="ev"><span class="dot" style="background:var(--blue)"></span><div class="box body"><span class="yr">1443</span><p>새 문자 28자를 만들어요</p><small>『세종실록』 세종 25년 12월 기사</small></div></div>
+<div class="ev"><span class="dot" style="background:var(--yellow)"></span><div class="box body"><span class="yr">1444</span><p>반대 상소와 세종의 대답</p><small>『세종실록』 세종 26년 2월 20일 기사</small></div></div>
+<div class="ev"><span class="dot" style="background:var(--red)"></span><div class="box body"><span class="yr">1446</span><p>해례본 완성 · 반포</p><small>『훈민정음』 해례본 · 『세종실록』 세종 28년 9월 기사</small></div></div>
+</div>
+<p class="note">한글날 10월 9일은 해례본에 적힌 날짜(음력 9월 상순)를 오늘의 달력으로 바꾼 날이에요.</p>
+<div class="note2"><span class="tag f">기록</span><span>세종과 훈민정음은 실제 역사예요.</span></div>
+<div class="note2" style="margin-top:10px"><span class="tag i">상상</span><span>영상 속 SNS·상소TV·챌린지는 오늘의 모습을 빌려 온 상상이에요.</span></div>
+<div class="foot"><span>뮤지계 · 세 개의 눈으로 만나는 한글</span><span>6 / 9</span></div>
+</section>
+
+<!-- 7 편지 -->
+<section class="card c7" id="c7">
+<div class="mark"><i class="d"></i><i class="l"></i><i class="b"></i><span class="pill green">3 오늘의 한글</span></div>
+<h1>세종대왕께<br>편지를 써요</h1>
+<div class="row">
+<div class="pic"><img src="img/letter.jpg" alt="그림책 속 책을 든 아이" style="object-position:40% 50%"></div>
+<div class="box letter"><span class="stamp">한<br>글</span><h2>세종대왕님께</h2><div class="ln">저는 한글로 …</div><div class="ln"></div><div class="ln"></div><div class="ln"></div><p class="sign">○○○ 드림</p></div>
+</div>
+<div class="do">
+<div><b>1</b>한글이 도움이 된 순간 떠올리기</div>
+<div><b>2</b>세종대왕께 3~4문장 편지 쓰기</div>
+<div><b>3</b>짝과 바꿔 읽고 한 줄 응원하기</div>
+</div>
+<div class="foot"><span>뮤지계 · 세 개의 눈으로 만나는 한글</span><span>7 / 9</span></div>
+</section>
+
+<!-- 8 수업 자료 -->
+<section class="card c8" id="c8">
+<div class="mark"><i class="d"></i><i class="l"></i><i class="b"></i><span class="pill">수업 자료</span></div>
+<h1>내려받아<br>바로 써요</h1>
+<div class="mats">
+<div class="box mat wide"><div><span class="ic" style="background:var(--blue-soft);color:var(--blue)">PPT</span><h2>수업 PPT 19장</h2><p>생각 열기 → 세 개의 눈 →<br>훈민정음 → 오늘의 한글<br>웹에서 바로 넘겨 볼 수도 있어요</p></div>
+<div class="stack"><img src="../slides/thumbs/07.jpg" alt=""><img src="../slides/thumbs/11.jpg" alt=""><img src="../slides/01.jpg" alt=""></div></div>
+<div class="box mat"><span class="ic" style="background:var(--red-soft);color:var(--red)">활동지 A4</span><h2>활동지 3장</h2><p>1 세 개의 눈<br>2 기록일까, 상상일까?<br>3 세종대왕께 보내는 편지</p></div>
+<div class="box mat"><span class="ic" style="background:var(--green-soft);color:var(--green)">수업 흐름</span><h2>골라 쓰는 차시</h2><div class="plan"><div>2차시<span>80분 · 전체 감상</span></div><div>1차시<span>40분 · 장면 골라 보기</span></div></div></div>
+</div>
+<div class="web"><strong>수업 웹페이지 <em>hangeulday.chichiboo.link</em></strong><div><span>▶ 영상 장면 골라 보기</span><span>PPT 바로 보기</span><span>활동지 바로 인쇄</span></div></div>
+<div class="foot"><span>뮤지계 · 세 개의 눈으로 만나는 한글</span><span>8 / 9</span></div>
+</section>
+
+<!-- 9 마무리 -->
+<section class="card dark c9" id="c9">
+<div class="sun"></div><div class="bar"></div><div class="pillbar"></div>
+<div style="position:absolute;left:80px;top:84px"><span class="pill" style="margin-left:0">마무리</span></div>
+<h1>나는 한글로<br><span class="blank">○○○</span>을<br>하고 싶다</h1>
+<p class="lead">왜냐하면 …… 수업 전과 달라진 생각 한 가지를 나눠요.</p>
+<p class="ask">한글은 누구를 위해 만들어졌을까요?</p>
+<div class="credit"><strong>〈새로운 문자 : 세 개의 눈〉</strong> 제작 교육뮤지컬 꿈꾸는 치수쌤 · 작곡 김아름<br>그림 손연희·이윤경·임나현·고은준 · 글 2022 배영초 나세나반<br>Created by. 교육뮤지컬 꿈꾸는 치수쌤 · litt.ly/chichiboo
+<p class="site">수업 자료 · hangeulday.chichiboo.link</p>
+<p class="hash">#뮤지계 #한글날 #계기교육 #뮤지컬그림책 #세개의눈</p></div>
+<div class="foot"><span>뮤지계 · 세 개의 눈으로 만나는 한글</span><span>9 / 9</span></div>
+</section>
+
+</body></html>
