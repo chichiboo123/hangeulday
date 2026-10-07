@@ -23,7 +23,7 @@ h1{margin:6px 0 4px;font-size:32px;line-height:1.2;font-weight:900;letter-spacin
 /* sheet1 */
 .eyerow{display:grid;grid-template-columns:96px 1fr 1.45fr;gap:10px;border-radius:20px;padding:12px;margin-bottom:9px}
 .who{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:900;font-size:16px;line-height:1.25;gap:7px}
-.who svg{width:56px;height:56px}
+.who .face{display:block;width:64px;height:64px;border-radius:50%;overflow:hidden;border:4px solid}.who .face img{width:100%;height:100%;object-fit:cover;display:block}.who small{display:block;font-size:11px;font-weight:700;color:var(--soft);margin-top:-3px}
 .fld{background:#fff;border-radius:14px;padding:8px 12px}
 .fld>span{display:block;font-size:12.5px;font-weight:800;color:var(--soft)}
 .fld .write{min-height:0;height:117px}
@@ -49,7 +49,7 @@ h1{margin:6px 0 4px;font-size:32px;line-height:1.2;font-weight:900;letter-spacin
 .tip{margin:12px 0 0;border-radius:14px;padding:9px 14px;font-size:13.5px;font-weight:600}
 .src{margin-top:8px;font-size:10.5px;color:var(--soft);line-height:1.6}
 /* sheet3 */
-.chips{display:flex;gap:8px;margin-bottom:6px}.chips span{border-radius:999px;padding:6px 14px;font-size:13.5px;font-weight:800}
+.momentwrap{display:flex;gap:14px;align-items:flex-end}.hyemin{flex:none;margin:0;width:92px;text-align:center}.hyemin img{width:92px;display:block}.hyemin figcaption{font-size:9.5px;color:var(--soft);font-weight:700}.chips{display:flex;gap:8px;margin-bottom:6px}.chips span{border-radius:999px;padding:6px 14px;font-size:13.5px;font-weight:800}
 .letter{position:relative;border:3px solid var(--ink);border-radius:22px;padding:16px 20px 12px;background:#fff}
 .letter .to{font-size:21px;font-weight:900}
 .letter .write{height:273px;min-height:0}
@@ -65,13 +65,13 @@ h1{margin:6px 0 4px;font-size:32px;line-height:1.2;font-weight:900;letter-spacin
 <div class="toolbar"><span>한글날 활동지 <span class="info" style="font-weight:500;opacity:.75">· A4 · 인쇄 창에서 PDF로 저장할 수 있어요</span></span><div><a href="./" onclick="window.close();setTimeout(function(){location.href='./'},150);return false">수업 사이트</a> <button onclick="window.print()">인쇄</button></div></div>
 
 <article class="sheet" data-sheet="1">
-<div class="head"><div><div class="kicker"><span class="mark"><i class="d"></i><i class="b"></i><i class="s"></i></span>활동지 1 · 영상 보며 생각 열기</div><h1>세 개의 눈, 서로 다른 마음</h1><p class="sub">뮤지컬 그림책 〈새로운 문자 : 세 개의 눈〉 속 인물의 마음을 살펴봐요.</p></div><span class="no" style="background:var(--blue)">1</span></div>
+<div class="head"><div><div class="kicker"><span class="mark"><i class="d"></i><i class="b"></i><i class="s"></i></span>활동지 1 · 영상 보며 생각 열기</div><h1>세 개의 눈, 서로 다른 마음</h1><p class="sub">뮤지컬 그림책 〈새로운 문자 : 세 개의 눈〉 1장~3장 속 인물의 마음을 살펴봐요.</p></div><span class="no" style="background:var(--blue)">1</span></div>
 <div class="name"><span>학년</span><span>반</span><span>번</span><span>이름</span></div>
 <div class="q"><b style="background:var(--blue)">1</b>세 사람은 새 글자를 어떻게 바라보았나요?</div>
 <p class="hint">바란 것이나 걱정한 것을 한 낱말로 쓰고, 그렇게 생각한 영상 장면을 적어요.</p>
-<div class="eyerow" style="background:var(--blue-t)"><div class="who"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="28" fill="#2F6FDE"/><ellipse cx="28" cy="28" rx="19" ry="11" fill="#fff"/><circle cx="28" cy="28" r="7" fill="#1F2A44"/></svg>세종</div><div class="fld"><span>바란 것</span><div class="write"></div></div><div class="fld"><span>그렇게 생각한 장면</span><div class="write"></div></div></div>
-<div class="eyerow" style="background:var(--yellow-t)"><div class="who"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="28" fill="#F6B93B"/><ellipse cx="28" cy="28" rx="19" ry="11" fill="#fff"/><circle cx="28" cy="28" r="7" fill="#1F2A44"/></svg>반대한<br>신하들</div><div class="fld"><span>걱정한 것</span><div class="write"></div></div><div class="fld"><span>그렇게 생각한 장면</span><div class="write"></div></div></div>
-<div class="eyerow" style="background:var(--green-t)"><div class="who"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="28" fill="#2E9E6B"/><ellipse cx="28" cy="28" rx="19" ry="11" fill="#fff"/><circle cx="28" cy="28" r="7" fill="#1F2A44"/></svg>서당<br>아이들</div><div class="fld"><span>알리고 싶은 것</span><div class="write"></div></div><div class="fld"><span>그렇게 생각한 장면</span><div class="write"></div></div></div>
+<div class="eyerow" style="background:var(--blue-t)"><div class="who"><span class="face" style="border-color:#2F6FDE"><img src="img/face_sejong.jpg" alt=""></span>세종<small></small></div><div class="fld"><span>바란 것</span><div class="write"></div></div><div class="fld"><span>그렇게 생각한 장면</span><div class="write"></div></div></div>
+<div class="eyerow" style="background:var(--yellow-t)"><div class="who"><span class="face" style="border-color:#F6B93B"><img src="img/face_opposers.jpg" alt=""></span>반대한 신하들<small>최만리·신석조·김문</small></div><div class="fld"><span>걱정한 것</span><div class="write"></div></div><div class="fld"><span>그렇게 생각한 장면</span><div class="write"></div></div></div>
+<div class="eyerow" style="background:var(--green-t)"><div class="who"><span class="face" style="border-color:#2E9E6B"><img src="img/face_sukju.jpg" alt=""></span>찬성한 학자들<small>신숙주·성삼문</small></div><div class="fld"><span>알리고 싶은 것</span><div class="write"></div></div><div class="fld"><span>그렇게 생각한 장면</span><div class="write"></div></div></div>
 <div class="q"><b style="background:var(--red)">2</b>백성의 눈으로 생각해요</div>
 <div class="bubble" style="background:var(--red-t)">내가 새 글자를 막 배운 백성이라면, 가장 먼저 무엇을 읽거나 쓰고 싶을까요? 그 까닭도 적어요.<style>.sheet[data-sheet="1"] .bubble:after{border-top-color:var(--red-t)}</style></div>
 <div class="write" style="height:156px"></div>
@@ -105,11 +105,10 @@ h1{margin:6px 0 4px;font-size:32px;line-height:1.2;font-weight:900;letter-spacin
 </article>
 
 <article class="sheet" data-sheet="3">
-<div class="head"><div><div class="kicker"><span class="mark"><i class="d"></i><i class="b"></i><i class="s"></i></span>활동지 3 · 내 생활 속 한글</div><h1>세종대왕께 보내는 편지</h1><p class="sub">한글이 내 생활에서 하는 일을 떠올려 편지로 전해요.</p></div><span class="no" style="background:var(--green)">3</span></div>
+<div class="head"><div><div class="kicker"><span class="mark"><i class="d"></i><i class="b"></i><i class="s"></i></span>활동지 3 · 내 생활 속 한글</div><h1>세종대왕께 보내는 편지</h1><p class="sub">“당신은 무엇을 기록하며 어떻게 공유하고 있습니까?” — 그림책의 마지막 질문에 편지로 답해요.</p></div><span class="no" style="background:var(--green)">3</span></div>
 <div class="name"><span>학년</span><span>반</span><span>번</span><span>이름</span></div>
 <div class="q"><b style="background:var(--green)">1</b>한글이 도움이 된 순간을 떠올려요</div>
-<div class="chips"><span style="background:var(--blue-t)">읽어서 알게 된 일</span><span style="background:var(--yellow-t)">써서 전한 마음</span><span style="background:var(--red-t)">글로 남긴 추억</span></div>
-<div class="write" style="height:117px"></div>
+<div class="momentwrap"><div style="flex:1"><div class="chips"><span style="background:var(--blue-t)">읽어서 알게 된 일</span><span style="background:var(--yellow-t)">써서 전한 마음</span><span style="background:var(--red-t)">글로 남긴 추억</span></div><div class="write" style="height:117px"></div></div><figure class="hyemin"><img src="img/hyemin.png" alt="그림책 캐릭터 혜민"><figcaption>그림책 속 ‘혜민’</figcaption></figure></div>
 <div class="q" style="margin-bottom:20px"><b style="background:var(--green)">2</b>세종대왕께 3~4문장으로 편지를 써요</div>
 <div class="letter"><span class="stamp">한글<br>우표</span><div class="to">세종대왕님께</div><div class="write"></div><div class="from">________________ 드림</div></div>
 <div class="cheer">짝의 한 줄 응원<i></i></div>

@@ -28,7 +28,7 @@ h3{font-size:1.125rem;line-height:1.5;color:var(--ink);margin:0 0 6px}
 .hero{background:linear-gradient(180deg,var(--mist),#fff 70%)}
 .video{position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;background:var(--ink);box-shadow:0 10px 24px rgba(80,130,170,.18)}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.poster{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#fff;text-align:center;padding:20px;border:0;width:100%;background:radial-gradient(circle at 80% 15%,#4FA3CF66,transparent 55%),var(--ink);cursor:pointer;font:inherit}
+.poster{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#fff;text-align:center;padding:20px;border:0;width:100%;background:linear-gradient(rgba(42,77,110,.78),rgba(31,42,68,.92)),url(img/cover.jpg) center 30%/cover;cursor:pointer;font:inherit}
 .poster .play{display:grid;place-items:center;width:76px;height:76px;border-radius:50%;background:var(--sun);color:var(--ink)}
 .poster .play .material-icons-outlined{font-size:44px;vertical-align:0}
 .poster strong{font-size:1.6rem}.poster span.meta{font-size:.95rem;opacity:.85}
@@ -39,7 +39,7 @@ h3{font-size:1.125rem;line-height:1.5;color:var(--ink);margin:0 0 6px}
 .note{margin-top:14px;font-size:15px;background:var(--sun-soft);border-radius:12px;padding:12px 16px;color:var(--color-gray-700)}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .card{background:#fff;border:1px solid #E2E9F0;border-radius:var(--radius);padding:22px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
-.eye{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;margin-bottom:12px}
+.face{display:block;width:72px;height:72px;border-radius:50%;object-fit:cover;border:4px solid;margin-bottom:12px}
 .eye svg{width:34px;height:20px}
 .card p{margin:0;color:var(--color-gray-700);font-size:15px}
 .card .q{margin-top:12px;font-weight:700;color:var(--ink)}
@@ -51,7 +51,7 @@ h3{font-size:1.125rem;line-height:1.5;color:var(--ink);margin:0 0 6px}
 .combine{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:2rem;font-weight:800;color:var(--ink)}
 .combine em{font-style:normal;display:grid;place-items:center;width:58px;height:58px;border-radius:14px;background:var(--mist)}.combine em.r{background:var(--sun)}
 .combine i{font-style:normal;color:var(--color-gray-500);font-size:1.5rem}
-.two{display:grid;grid-template-columns:1fr 1.5fr;gap:24px;align-items:start}
+.mascot{float:right;width:88px;height:auto;margin:0 0 8px 12px}.two{clear:both;display:grid;grid-template-columns:1fr 1.5fr;gap:24px;align-items:start}
 .big{font-size:4rem;font-weight:800;color:#4FA3CF;line-height:1}
 .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:8px 0 16px}
 .timeline div{border-radius:14px;background:var(--mist);padding:16px 18px}.timeline div:last-child{background:var(--sun-soft)}
@@ -103,13 +103,13 @@ table{width:100%;border-collapse:collapse;font-size:15px;background:#fff;border-
 <section id="eyes"><div class="wrap">
 <span class="eyebrow">01 세 개의 눈</span><h2>같은 글자, 서로 다른 마음</h2><p class="lead">영상 속 세 인물이 새 글자를 어떻게 바라보았는지 살펴봐요.</p>
 <div class="grid3">
-<article class="card"><div class="eye" style="background:#89C4E1"><svg viewBox="0 0 34 20"><ellipse cx="17" cy="10" rx="17" ry="10" fill="#fff"/><circle cx="17" cy="10" r="6" fill="#2A4D6E"/></svg></div><h3>세종의 눈</h3><p>하고 싶은 말이 있어도 제 뜻을 펴지 못하는 백성이 많았어요.</p><p class="q">글자를 알면 백성의 생활은 어떻게 달라질까요?</p><small>사료 A · C</small></article>
-<article class="card"><div class="eye" style="background:#F5D76E"><svg viewBox="0 0 34 20"><ellipse cx="17" cy="10" rx="17" ry="10" fill="#fff"/><circle cx="17" cy="10" r="6" fill="#2A4D6E"/></svg></div><h3>반대의 눈</h3><p>최만리와 일부 신하들은 중국과의 관계, 한자 공부와 학문을 걱정했어요.</p><p class="q">두 주장은 각각 무엇을 중요하게 생각했나요?</p><small>사료 B</small></article>
-<article class="card"><div class="eye" style="background:#7FBF8C"><svg viewBox="0 0 34 20"><ellipse cx="17" cy="10" rx="17" ry="10" fill="#fff"/><circle cx="17" cy="10" r="6" fill="#2A4D6E"/></svg></div><h3>찬성의 눈</h3><p>서당 아이들이 새 글자의 좋은 점을 알릴 방법을 고민해요. (영상 속 상상)</p><p class="q">여러분이라면 한글의 어떤 점을 알리겠어요?</p><small>사료 E</small></article>
+<article class="card"><img class="face" src="img/face_sejong.jpg" alt="그림책 속 세종" style="border-color:#89C4E1"><h3>1장 세종의 눈</h3><p>하고 싶은 말이 있어도 제 뜻을 펴지 못하는 백성이 많았어요. 그림책 속 세종은 “누구나 읽고 쓸 수 있는 새로운 글자를 만들었도다”라고 말해요.</p><p class="q">글자를 알면 백성의 생활은 어떻게 달라질까요?</p><small>사료 A · C</small></article>
+<article class="card"><img class="face" src="img/face_opposers.jpg" alt="그림책 속 최만리·신석조·김문" style="border-color:#F5D76E"><h3>2장 반대의 눈</h3><p>최만리·신석조·김문 등 일부 신하들은 중국과의 관계, 한자 공부와 학문을 걱정했어요. 세종은 이두처럼 새 글자도 백성을 편하게 하려는 것이라고 답했어요.</p><p class="q">두 주장은 각각 무엇을 중요하게 생각했나요?</p><small>사료 B</small></article>
+<article class="card"><img class="face" src="img/face_sukju.jpg" alt="그림책 속 신숙주·성삼문" style="border-color:#7FBF8C"><h3>3장 찬성의 눈</h3><p>신숙주와 성삼문이 서당 아이들과 함께 새 글자의 좋은 점을 알릴 방법을 찾아요(영상 속 상상). 두 사람은 실제로 해례본을 함께 지은 집현전 학자예요.</p><p class="q">여러분이라면 한글의 어떤 점을 알리겠어요?</p><small>사료 D · E</small></article>
 </div></div></section>
 
 <section id="hunmin"><div class="wrap">
-<span class="eyebrow">02 훈민정음</span><h2>훈민정음, 백성을 가르치는 바른 소리</h2><p class="lead">‘훈민정음’은 새 글자의 이름이면서, 그 글자를 설명한 책의 이름이에요.</p>
+<img class="mascot" src="img/hyemin.png" alt="그림책 속 훈민정음 캐릭터 혜민" width="88"><span class="eyebrow">02 훈민정음</span><h2>훈민정음, 백성을 가르치는 바른 소리</h2><p class="lead">‘훈민정음’은 새 글자의 이름이면서, 그 글자를 설명한 책의 이름이에요.</p>
 <div class="two">
 <div class="card"><div class="big">28</div><h3 style="margin-top:8px">처음 만든 글자 수</h3><p>초성 17자 + 중성 11자. 오늘날은 그중 24자를 써요.</p><small>1443년 창제 · 사료 A</small></div>
 <div class="card"><h3>소리를 합쳐 글자를 만들어요</h3><p style="margin-bottom:14px">첫소리(초성)·가운뎃소리(중성)·끝소리(종성)를 합해 한 글자를 이뤄요.</p>
@@ -129,7 +129,7 @@ table{width:100%;border-collapse:collapse;font-size:15px;background:#fff;border-
 </div></section>
 
 <section id="materials"><div class="wrap">
-<span class="eyebrow">수업 자료</span><h2>내려받아 바로 쓰기</h2><p class="lead">PPT 18장과 활동지 3장(A4)이에요.</p>
+<span class="eyebrow">수업 자료</span><h2>내려받아 바로 쓰기</h2><p class="lead">PPT 19장과 활동지 3장(A4)이에요. 그림책 속 인물 그림을 함께 담았어요.</p>
 <div class="dl">
 <a class="card" href="files/hangeul-lesson.pptx" download="한글날_수업.pptx"><span class="ico"><span class="material-icons-outlined">slideshow</span></span><strong>수업 PPT</strong><span>생각 열기 → 세 개의 눈 → 훈민정음 → 오늘의 한글</span></a>
 <a class="card" href="files/hangeul-worksheets.pdf" download="한글날_활동지.pdf"><span class="ico"><span class="material-icons-outlined">picture_as_pdf</span></span><strong>활동지 PDF</strong><span>1 세 개의 눈 · 2 기록일까, 상상일까? · 3 세종대왕께 보내는 편지</span></a>
@@ -142,11 +142,11 @@ table{width:100%;border-collapse:collapse;font-size:15px;background:#fff;border-
 <div class="seg" role="group" aria-label="수업 시간"><button data-plan="80" aria-pressed="true">2차시 · 80분</button><button data-plan="40" aria-pressed="false">1차시 · 40분</button></div>
 <div class="tablewrap" id="plan"></div></details>
 <details class="box"><summary>역사적 사실을 다룰 때</summary><ul>
-<li>1443년 창제와 1446년 반포를 구분합니다.</li><li>반대 상소는 1444년입니다. 영상의 전개 순서를 실제 연표로 옮기지 않습니다.</li><li>한글 이전에도 우리말은 있었습니다. 말과 문자를 구분합니다.</li><li>집현전 학자 전부가 반대한 것으로 설명하지 않습니다.</li><li>한글이 생기자 모든 백성이 곧바로 글을 읽게 된 것은 아닙니다.</li></ul></details>
+<li>1443년 창제와 1446년 반포를 구분합니다.</li><li>반대 상소는 1444년입니다. 영상의 전개 순서를 실제 연표로 옮기지 않습니다.</li><li>한글 이전에도 우리말은 있었습니다. 말과 문자를 구분합니다.</li><li>집현전 학자 전부가 반대한 것으로 설명하지 않습니다. 신숙주·성삼문처럼 해례본을 함께 지은 학자도 있었습니다.</li><li>한글이 생기자 모든 백성이 곧바로 글을 읽게 된 것은 아닙니다.</li></ul></details>
 <details class="box"><summary>토의와 평가</summary><ul>
 <li>“나쁜 사람”이라는 판단보다 주장의 근거와 놓친 사람의 입장을 묻습니다.</li><li>문해력의 차이를 지능·인격의 차이로 연결하지 않습니다.</li><li>사료를 근거로 설명하는지, 자신의 경험을 연결하는지 살핍니다. 맞춤법만으로 평가하지 않습니다.</li><li>활동지 2 답 방향: ① 사실(A) ② 상소는 사실(B), 유튜브 생방송은 상상 ③ 한글이 퍼진 것은 사실(E), 챌린지라는 방법은 상상 ④ 사실(D)</li></ul></details>
 <details class="box"><summary>자료 출처와 영상 정보</summary><ul>
-<li>영상 〈새로운 문자 : 세 개의 눈〉 — 제작 교육뮤지컬 꿈꾸는 치수쌤(원치수), 작곡 및 편곡 김아름, 그림 손연희·이윤경·임나현·고은준, 글 2022 배영초 나세나반, 지원 배영초등학교. 2023. 2. 19. 게시.</li>
+<li>뮤지컬 그림책·영상 〈새로운 문자 : 세 개의 눈〉 — 제작 교육뮤지컬 꿈꾸는 치수쌤(원치수), 작곡 김아름, 그림 손연희·이윤경·임나현·고은준, 글 2022 배영초 나세나반, 펴낸곳 배영초등학교. 그림책 초판 2022. 12. 30. 발행, 영상 2023. 2. 19. 게시. 〈역사의 공기 : 역사 이야기, 공유된 기록으로 만나다〉 프로젝트 결과물입니다. 이 사이트의 인물 그림은 그림책에서 가져왔습니다.</li>
 <li>사료 제공 국사편찬위원회 · 국역 세종대왕기념사업회 · 문헌 해설 국가유산청 · 전시 해설 국립한글박물관. 쉬운 풀이는 수업용 재서술입니다. 자료 확인 2026. 10. 7.</li>
 <li>영상은 원 채널에서 재생하며 수업 자료에 복제하지 않았습니다. 재생에는 인터넷이 필요합니다.</li></ul></details>
 </div></section>
