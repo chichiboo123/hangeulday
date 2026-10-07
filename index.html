@@ -72,6 +72,28 @@ details p{font-size:14px;color:var(--color-gray-700);margin:0 0 6px}
 .dl .ico{display:grid;place-items:center;width:46px;height:46px;border-radius:12px;background:var(--color-primary-light);color:var(--color-primary)}
 .dl .ico .material-icons-outlined{font-size:26px;vertical-align:0}
 .dl strong{font-size:1.05rem;color:var(--ink)}.dl span{font-size:14px;color:var(--color-gray-500)}
+.viewer{margin:0 0 28px}
+.viewer h3{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.stage{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;background:#F6F3EC;border:1px solid #E2E9F0;box-shadow:0 10px 24px rgba(80,130,170,.14)}
+.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;user-select:none;-webkit-user-drag:none}
+.stage .nav{position:absolute;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:50%;background:#ffffffdd;color:var(--ink);cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.stage .nav:hover{background:#fff}.stage .nav:disabled{opacity:0;pointer-events:none}
+.stage .nav .material-icons-outlined{font-size:28px;vertical-align:0}
+.stage .prev{left:10px}.stage .next{right:10px}
+.vbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:10px 0}
+.vbar .count{font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+.vbar .title{flex:1;font-size:15px;color:var(--color-gray-700);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vbtn{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--color-gray-300);background:#fff;border-radius:999px;padding:6px 14px;font:inherit;font-size:14px;font-weight:600;color:var(--color-gray-700);cursor:pointer}
+.vbtn:hover{border-color:var(--color-primary);color:var(--color-primary)}
+.thumbs{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 8px;scroll-snap-type:x proximity}
+.thumbs button{flex:0 0 auto;width:120px;aspect-ratio:16/9;padding:0;border:2px solid transparent;border-radius:8px;overflow:hidden;background:var(--color-gray-100);cursor:pointer;scroll-snap-align:start}
+.thumbs button[aria-current=true]{border-color:var(--color-primary)}
+.thumbs img{display:block;width:100%;height:100%;object-fit:cover}
+.viewer:fullscreen{background:#111;display:flex;flex-direction:column;justify-content:center;padding:12px}
+.viewer:fullscreen h3,.viewer:fullscreen .thumbs,.viewer:fullscreen .vnote{display:none}
+.viewer:fullscreen .stage{flex:1;aspect-ratio:auto;border:0;border-radius:0;background:#111;box-shadow:none}
+.viewer:fullscreen .vbar{margin:8px 0 0}.viewer:fullscreen .vbar .count,.viewer:fullscreen .vbar .title{color:#ddd}
+.vnote{margin:0;font-size:14px;color:var(--color-gray-500)}
 .teacher details.box{background:var(--color-gray-100);padding:16px 20px;margin-bottom:12px;border-radius:14px}
 .teacher details.box>summary{font-size:1.05rem;color:var(--ink);font-weight:700}
 .teacher ul{margin:8px 0 0;padding-left:20px}.teacher li{margin-bottom:6px;font-size:15px;color:var(--color-gray-700)}
@@ -130,6 +152,13 @@ table{width:100%;border-collapse:collapse;font-size:15px;background:#fff;border-
 
 <section id="materials"><div class="wrap">
 <span class="eyebrow">수업 자료</span><h2>내려받아 바로 쓰기</h2><p class="lead">PPT 19장과 활동지 3장(A4)이에요. 그림책 속 인물 그림을 함께 담았어요.</p>
+<div class="viewer" id="viewer" tabindex="-1" aria-roledescription="슬라이드 보기">
+<h3><span class="material-icons-outlined">slideshow</span>수업 PPT 바로 보기</h3>
+<div class="stage" id="stage"><img id="slideImg" src="slides/01.jpg" alt="" width="1280" height="720"><button class="nav prev" id="prevBtn" aria-label="이전 장"><span class="material-icons-outlined">chevron_left</span></button><button class="nav next" id="nextBtn" aria-label="다음 장"><span class="material-icons-outlined">chevron_right</span></button></div>
+<div class="vbar"><span class="count" id="slideCount" aria-live="polite">1 / 19</span><span class="title" id="slideTitle"></span><button class="vbtn" id="fsBtn" hidden><span class="material-icons-outlined">fullscreen</span><span>전체 화면</span></button></div>
+<div class="thumbs" id="thumbs" aria-label="슬라이드 목록"></div>
+<p class="vnote">슬라이드를 그림으로 옮긴 미리보기예요. 영상·음원 연결은 내려받은 PPT에서 눌러 쓸 수 있어요. ← → 키로 넘길 수 있어요.</p>
+</div>
 <div class="dl">
 <a class="card" href="files/hangeul-lesson.pptx" download="한글날_수업.pptx"><span class="ico"><span class="material-icons-outlined">slideshow</span></span><strong>수업 PPT</strong><span>생각 열기 → 세 개의 눈 → 훈민정음 → 오늘의 한글</span></a>
 <a class="card" href="files/hangeul-worksheets.pdf" download="한글날_활동지.pdf"><span class="ico"><span class="material-icons-outlined">picture_as_pdf</span></span><strong>활동지 PDF</strong><span>1 세 개의 눈 · 2 기록일까, 상상일까? · 3 세종대왕께 보내는 편지</span></a>
@@ -169,4 +198,38 @@ const PLANS={80:[['1차시','5분','생각 열기','내 뜻을 글로 전할 수
 40:[['한 차시','3분','생각 열기','글로 표현할 수 없다면?'],['한 차시','12분','장면 골라 보기','1:36~10:56(세 개의 눈, 약 9분)만 시청. 전체 감상은 아침활동·창체에 미리'],['한 차시','10분','세 개의 눈 + 훈민정음','활동지 1, 28자와 글자 모양의 비밀'],['한 차시','12분','세종대왕께 편지','활동지 3'],['한 차시','3분','오늘의 한 문장','활동지 2는 후속 수업']]};
 function renderPlan(p){document.getElementById('plan').innerHTML='<table><thead><tr><th>차시</th><th>시간</th><th>활동</th><th>진행</th></tr></thead><tbody>'+PLANS[p].map(r=>'<tr>'+r.map(c=>'<td>'+esc(c)+'</td>').join('')+'</tr>').join('')+'</tbody></table>';document.querySelectorAll('[data-plan]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.plan===String(p))))}
 document.querySelectorAll('[data-plan]').forEach(b=>b.addEventListener('click',()=>renderPlan(b.dataset.plan)));renderPlan(80);
+const SLIDES=['표지 · 세 개의 눈으로 만나는 한글','오늘은 이렇게 공부해요','내 뜻을 글로 전할 수 없다면?','뮤지컬 그림책을 함께 봐요','1 세 개의 눈','왜 새 글자를 만들었을까?','왜 반대했을까?','새 글자를 널리 알리려면?','2 훈민정음','글자 이름이자 책 이름','소리를 합쳐 글자를 만들어요','글자 모양에 숨은 비밀','기록으로 보는 한글의 시간','기록일까, 상상일까?','3 오늘의 한글','세종대왕께 편지를 써요','함께 불러요 〈우리모두歌〉','나는 한글로 ○○○을 하고 싶다','기록으로 다시 확인하기'];
+const pad=n=>String(n).padStart(2,'0');
+const viewer=document.getElementById('viewer'),slideImg=document.getElementById('slideImg'),thumbs=document.getElementById('thumbs');
+let cur=0;
+thumbs.innerHTML=SLIDES.map((t,i)=>`<button data-i="${i}" aria-label="${i+1}장 ${esc(t)}"><img src="slides/thumbs/${pad(i+1)}.jpg" alt="" loading="lazy" width="320" height="180"></button>`).join('');
+function show(i){
+  cur=Math.max(0,Math.min(SLIDES.length-1,i));
+  slideImg.src=`slides/${pad(cur+1)}.jpg`;slideImg.alt=`${cur+1}장: ${SLIDES[cur]}`;
+  document.getElementById('slideCount').textContent=`${cur+1} / ${SLIDES.length}`;
+  document.getElementById('slideTitle').textContent=SLIDES[cur];
+  document.getElementById('prevBtn').disabled=cur===0;document.getElementById('nextBtn').disabled=cur===SLIDES.length-1;
+  thumbs.querySelectorAll('button').forEach((b,k)=>b.setAttribute('aria-current',String(k===cur)));
+  const tb=thumbs.children[cur];thumbs.scrollTo({left:tb.offsetLeft-thumbs.clientWidth/2+tb.clientWidth/2,behavior:'smooth'});
+  [cur-1,cur+1].forEach(k=>{if(k>=0&&k<SLIDES.length)new Image().src=`slides/${pad(k+1)}.jpg`});
+}
+document.getElementById('prevBtn').addEventListener('click',()=>show(cur-1));
+document.getElementById('nextBtn').addEventListener('click',()=>show(cur+1));
+thumbs.addEventListener('click',e=>{const b=e.target.closest('button');if(b)show(Number(b.dataset.i))});
+document.addEventListener('keydown',e=>{
+  const fs=document.fullscreenElement===viewer;
+  if(!fs&&!viewer.contains(document.activeElement))return;
+  if(e.key==='ArrowRight'||e.key==='PageDown'||(fs&&e.key===' ')){e.preventDefault();show(cur+1)}
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(cur-1)}
+  else if(e.key==='Home'){e.preventDefault();show(0)}else if(e.key==='End'){e.preventDefault();show(SLIDES.length-1)}
+});
+let sx=null;const stage=document.getElementById('stage');
+stage.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+stage.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;sx=null;if(Math.abs(dx)>40)show(cur+(dx<0?1:-1))});
+stage.addEventListener('click',e=>{if(!e.target.closest('button'))viewer.focus({preventScroll:true})});
+const fsBtn=document.getElementById('fsBtn');
+if(document.fullscreenEnabled){fsBtn.hidden=false;
+  fsBtn.addEventListener('click',()=>document.fullscreenElement?document.exitFullscreen():viewer.requestFullscreen());
+  document.addEventListener('fullscreenchange',()=>{const on=document.fullscreenElement===viewer;fsBtn.querySelector('.material-icons-outlined').textContent=on?'fullscreen_exit':'fullscreen';fsBtn.lastElementChild.textContent=on?'전체 화면 끝내기':'전체 화면'});}
+show(0);
 </script></body></html>
